@@ -7,20 +7,57 @@ const ExpenseForm = (e) => {
     const [enteredAmount, setEnteredAmount] = useState(' ');
     const [enteredDate, setEnteredDate] = useState(' ');
 
+  // const [userInput, setUserInput] = useState(
+  //  {
+  //  enteredTitle: '',
+  //  enteredAmount: '',
+  //  enteredDate: ''
+  //  }
+  // )
+
     const titleChangeHandeler = (e) =>{
-          setEnteredTitle(e.target.value)
+       //   setUserInput((prevState) =>{
+       //    return {...prevState, enteredTitle: e.target.value}
+       //   })
+
+       setEnteredTitle(e.target.value)
     }
 
     
     const AmountChangeHandeler = (e) =>{
-        setEnteredAmount(e.target.value)
+       // setUserInput(
+       //     {
+       //     ...userInput,
+       //     enteredAmount: e.target.value
+        //    }
+       // )
+
+       setEnteredAmount(e.target.value)
   }
   
   
   const DateChangeHandeler = (e) =>{
-    setEnteredDate(e.target.value)
+   // setUserInput(
+    //    {
+   //     ...userInput,
+   //     enteredDate: e.target.value
+   //     }
+   // )
+
+   setEnteredDate(e.target.value)
 }
 
+const  submitHandler = (e) =>{
+    e.preventDefault();
+
+    const expenseData = {
+        title: enteredTitle,
+        amount: enteredAmount,
+        date: new Date(enteredDate) 
+    }
+
+    console.log(expenseData)
+}
   return (
     
    <form>
@@ -39,7 +76,7 @@ const ExpenseForm = (e) => {
         </div>
     </div>
     <div className='new-expense__actions'>
-        <button type='submit' onClick={console.log('clicked')}>Add Expense</button>
+        <button type='submit' onClick={submitHandler}>Add Expense</button>
     </div>
    </form>
   )
