@@ -1,0 +1,16 @@
+.expense-filter {
+    background-color: white;
+    color: black;
+    display: flex;
+}
+
+#label{
+    color: aliceblue;
+}
+
+.expense-filter_control{
+    background-color: white;
+    color: black;
+    display: flex ;
+    flex-direction: column;
+}
