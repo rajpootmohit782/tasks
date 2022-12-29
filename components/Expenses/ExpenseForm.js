@@ -7,6 +7,7 @@ const ExpenseForm = (props) => {
     const [enteredAmount, setEnteredAmount] = useState(' ');
     const [enteredDate, setEnteredDate] = useState(' ');
 
+
   // const [userInput, setUserInput] = useState(
   //  {
   //  enteredTitle: '',
@@ -56,13 +57,23 @@ const  submitHandler = (e) =>{
         date: new Date(enteredDate) 
     }
 
+    
     props.onSaveExpenseData(expenseData)
     setEnteredTitle('')
     setEnteredAmount('')
     setEnteredDate('')
 }
+
+const cancelHandler = () =>{
+   props.stopEditingHandler(true)
+}
+
+
   return (
     
+   // showState === false? <button onClick={showStateHandler}>Add New Expense</button>
+    
+    //:
    <form>
     <div className='new-expense__controls'>
         <div className='new-expense__control'>
@@ -79,9 +90,12 @@ const  submitHandler = (e) =>{
         </div>
     </div>
     <div className='new-expense__actions'>
+       <button type='button' onClick={cancelHandler}>Cancel</button>
         <button type='submit' onClick={submitHandler}>Add Expense</button>
     </div>
    </form>
+   
+
   )
 }
 
